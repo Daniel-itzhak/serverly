@@ -44,10 +44,10 @@ export default function ServerForm({ renderTable, port, handleMessage }) {
                 <span>Server Name</span>
                 <input type='text' className='form-control' ref={nameRef} />
                 <select ref={typeRef} className="form-select mt-3" aria-label="Default select example">
-                    <option value='nano,0.03'>nano</option>
-                    <option value='micro,0.05'>micro</option>
-                    <option value='xl,0.07'>xl</option>
-                    <option value='xxl,0.09'>xxl</option>
+                    <option value='nano,0.03'>nano 0.03$/m</option>
+                    <option value='micro,0.05'>micro 0.05$/m</option>
+                    <option value='xl,0.07'>xl 0.07$/m</option>
+                    <option value='xxl,0.09'>xxl 0.08$/m</option>
                 </select>
             </div>
             <div className='col-sm-6 col-md-3'>
