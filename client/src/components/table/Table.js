@@ -66,7 +66,7 @@ export default function Table() {
                     {message}
                 </div>
             }
-            <table className='col-12 table table-bordered border-primary'>
+            <table className='col-12 table-responsive-sm table-bordered border-primary'>
                 <thead>
                     <tr>
                         <th scope="col">IP</th>

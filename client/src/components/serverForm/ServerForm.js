@@ -39,8 +39,8 @@ export default function ServerForm({ renderTable, port, handleMessage }) {
     }
 
     return (
-        <div className='row mt-3'>
-            <div className='col-sm-6 col-md-3'>
+        <div className='row'>
+            <div className='col-sm-12 col-md-3 mt-3'>
                 <span>Server Name</span>
                 <input type='text' className='form-control' ref={nameRef} />
                 <select ref={typeRef} className="form-select mt-3" aria-label="Default select example">
@@ -50,7 +50,7 @@ export default function ServerForm({ renderTable, port, handleMessage }) {
                     <option value='xxl,0.09'>xxl 0.08$/m</option>
                 </select>
             </div>
-            <div className='col-sm-6 col-md-3'>
+            <div className='col-sm-12 col-md-3 mt-3'>
                 <span>Server IP</span>
                 <input type='text' className='form-control' ref={ipRef} />
                 <button className='btn btn-success mt-3' onClick={() => handleSubmit()}>Add Server</button>
