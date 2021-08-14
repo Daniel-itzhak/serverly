@@ -4,7 +4,7 @@ import ServerForm from '../serverForm/ServerForm';
 import Counter from '../counter/Counter';
 
 export default function Table() {
-    const port = 'http://localhost:5000/api/servers';
+    const port = 'https://severly-daniel.herokuapp.com/api/servers';
     const [servers, setServers] = useState(null);
     const [currentTime, setCurrentTime] = useState(new Date());
     const [index, setindex] = useState(0);
