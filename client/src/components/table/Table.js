@@ -1,11 +1,12 @@
 import React, { useEffect, useRef, useState } from 'react';
 import axios from 'axios';
 import ServerForm from '../serverForm/ServerForm';
+import Counter from '../counter/Counter';
 
 export default function Table() {
     const port = 'http://localhost:5000/api/servers';
     const [servers, setServers] = useState(null);
-    const [currentTimeate, setCurrentTime] = useState(new Date())
+    const [currentTime, setCurrentTime] = useState(new Date())
     const [index, setindex] = useState(0)
     const [message, setMessage] = useState(null)
     const [convert, setConvert] = useState(1)
@@ -72,10 +73,10 @@ export default function Table() {
                     {servers && servers.map(server => (<tr key={server._id} className={`${server.Running.isRunning ? 'bg-info' : ''}`}>
                         <td>{server.ipAddress}</td>
                         <td>{server.Name}</td>
-                        <td>{server.Running.isRunning ? ` ${Math.floor((currentTimeate - new Date(server.Running.startTime)) / (60 * 60 * 1000))} : ${Math.floor(((currentTimeate - new Date(server.Running.startTime)) % (60 * 60 * 1000)) / (60 * 1000))} : ${Math.floor((((currentTimeate - new Date(server.Running.startTime)) % (60 * 1000)) / 1000))}` : "---"}</td>
+                        <td>{server.Running.isRunning ? <Counter dif={currentTime-new Date(server.Running.startTime)} /> : "---"}</td>
                         <td>{server.Running.isRunning ? <button className='btn btn-danger w-100' onClick={() => { handleToggle(!server.Running.isRunning, server._id) }}>Turn Off</button> : <button className='btn btn-success' onClick={() => { handleToggle(!server.Running.isRunning, server._id) }}>Turn On</button>}</td>
                         <td>{server.Type.Name}</td>
-                        <td>{server.Running.isRunning ? `${(convert * server.Type.pricePerMinute * Math.floor(((currentTimeate - new Date(server.Running.startTime)) / (1000 * 60)))).toFixed(4)}` : `${server.Type.pricePerMinute}$/m`}</td>
+                        <td>{server.Running.isRunning ? `${(convert * server.Type.pricePerMinute * Math.floor(((currentTime - new Date(server.Running.startTime)) / (1000 * 60)))).toFixed(4)}` : `${server.Type.pricePerMinute}$/m`}</td>
                         <td><button className='btn btn-danger w-100' onClick={() => handleDelete(server._id, server.Running.isRunning)}>Delete</button></td>
                     </tr>))}
                 </thead>
